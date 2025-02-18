@@ -41,6 +41,7 @@ pipeline {
                     sh """
                         ssh -o StrictHostKeyChecking=no belal@192.168.1.111 '
                         docker container rm -f simple-app
+                        docker image rm -f  ${IMAGE_NAME}
                         docker run -d -p 8770:80 --name simple-app ${IMAGE_NAME}'
                     """
                 }
